@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    fileprivate func extractedFunc() -> some View {
+        return VStack {
+            Text("Hello, Test1").padding().foregroundColor(Color.red)
+            Text("Hello, Test 2").padding().foregroundColor(Color.blue)
+            Text("Hello, Test 3").padding().foregroundColor(Color.green)
+            Button {
+                print("CLicked")
+            } label: {
+                Text("Click Here....")
+            }
+        }.background(Color.white)
+    }
+    
     var body: some View {
-        Text("Hello, Test")
-            .padding()
+        ZStack {
+            Image("test").resizable().aspectRatio(contentMode: .fill)
+            extractedFunc()
+        }
     }
 }
 
